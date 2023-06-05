@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     $type = $_POST['type'];
     $sold = $_POST['sold'];
 
-    $sql = "INSERT INTO info (name, type, sold) values('$name, $type, $sold')";
+    $sql = "INSERT INTO info (name, type, sold) values($name, $type, $sold)";
     $result = mysqli_query($con, $sql);
 
     if ($result) {
