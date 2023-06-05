@@ -33,30 +33,24 @@ include 'connect.php';
                 <?php
                 $sql = "SELECT * FROM info ORDER BY name";
 
-                $result = $con->query($sql);
-                while ($row = $result->fetch_row()) {
-                    printf("%s (%s)\n", $row[0], $row[1]);
-
-
-                    foreach ($result as $now) {
-                        foreach ($now as $writeout) {
-                            echo "<h5>$writeout</h5>";
-                        }
+                $result = mysqli_query($con, $sql);
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id = $row['id'];
+                        $name = $row['name'];
+                        $type = ['type'];
+                        $sold = $row['sold'];
+                        echo '
+                        <tr>
+                            <th scope="row">' . $id . '</th>
+                            <td>' . $name . '</td>
+                            <td>' . $type . '</td>
+                            <td>' . $sold . '</td>
+                            </tr>';
                     }
-
-                    // $name = $row['name'];
-                    // $type = $row['type'];
-                    // $sold = $row['sold'];
-                    // echo '
-                    //     <tr>
-                    //     <th scope="row">{$id}</th>
-                    //     <td>{$name}</td>
-                    //     <td>{$type}</td>
-                    //     <td>{$sold}</td>
-                    //     </tr>';
                 }
-
-                ?></tbody>
+                ?>
+            </tbody>
         </table>
     </div>
 </body>
