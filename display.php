@@ -39,9 +39,9 @@ include 'connect.php';
                 <?php
                 $sql = "SELECT * FROM info ORDER BY name";
 
-                $date = "SELECT NOW()";
+                $date_add = "SELECT NOW()";
 
-                $result = mysqli_query($con, $sql, $date);
+                $result = mysqli_query($con, $sql, $date_add);
                 if ($result) {
                     while ($row = mysqli_fetch_assoc($result)) {
 
