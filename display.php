@@ -39,7 +39,9 @@ include 'connect.php';
                 <?php
                 $sql = "SELECT * FROM info ORDER BY name";
 
-                $result = mysqli_query($con, $sql);
+                $date = "SELECT NOW()";
+
+                $result = mysqli_query($con, $sql, $date);
                 if ($result) {
                     while ($row = mysqli_fetch_assoc($result)) {
 
@@ -66,8 +68,6 @@ include 'connect.php';
                         <button class="btn btn-danger"><a href="delete.php?deleteid=' . $id . ' ">Delete</a></button>
                         </td>
                         </tr>';
-                        // $sql = "SELECT NOW()";
-
                     }
                 }
 

@@ -84,8 +84,6 @@ if (isset($_POST['submit'])) {
                 <input type="text" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" value=<?php echo $total_sales_amount ?> />
             </div>
 
-
-
             <div class="form-group">
                 <label>Såld/tillgänglig</label>
                 <input type="text" class="form-control" placeholder="Skriv om den är såld/tillgänlig" name="sold" autocapitalize="off" value=<?php echo $sold ?> />
