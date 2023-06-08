@@ -5,11 +5,9 @@ include 'connect.php';
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $type = $_POST['type'];
-    $submitted_garments = $_POST['submitted_garments'];
-    $number_of_garments_sold = $_POST['number_of_garments_sold'];
-    $total_sales_amount = $_POST['total_sales_amount'];
-    $date_add = $_POST['date_add'];
-    $sold = $_POST['sold'];
+    $submitted_garments = (int)$_POST['submitted_garments'];
+    $number_of_garments_sold = (int)$_POST['number_of_garments_sold'];
+    $total_sales_amount = (int)$_POST['total_sales_amount'];
 
     $sql = "INSERT INTO NOW info (name, type, submitted_garments, number_of_garments_sold, total_sales_amount, date_add, sold) values ('$name', '$type', '$submitted_garments', '$number_of_garments_sold', '$total_sales_amount', NOW(), NOW())";
 
@@ -68,12 +66,6 @@ if (isset($_POST['submit'])) {
                 <label>Totala försäljningssumman</label>
                 <input type="number" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" />
             </div>
-            <!-- 
-            <div class="form-group">
-                <label>Såld/tillgänglig</label>
-                <input type="text" class="form-control" placeholder="Skriv om den är såld/tillgänlig" name="sold" autocapitalize="off" />
-            </div> -->
-
 
             <button type="submit" class="btn btn-primary" name="submit">Skicka</button>
         </form>

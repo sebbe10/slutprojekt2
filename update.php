@@ -7,21 +7,21 @@ $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
 $name = $row['name'];
 $type = $row['type'];
-$submitted_garments = $row['submitted_garments'];
-$number_of_garments_sold = $row['number_of_garments_sold'];
-$total_sales_amount = $row['total_sales_amount'];
-$date_add = $row['date_add'];
-$sold = $row['sold'];
+$submitted_garments = (int)$row['submitted_garments'];
+$number_of_garments_sold = (int)$row['number_of_garments_sold'];
+$total_sales_amount = (int)$row['total_sales_amount'];
+// $date_add = $row['date_add'];
+// $sold = $row['sold'];
 
 
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $type = $_POST['type'];
-    $submitted_garments = $_POST['submitted_garments'];
-    $number_of_garments_sold = $_POST['number_of_garments_sold'];
-    $total_sales_amount = $_POST['total_sales_amount'];
-    $date_add = $_POST['date_add'];
-    $sold = $_POST['sold'];
+    $submitted_garments = (int)$_POST['submitted_garments'];
+    $number_of_garments_sold = (int) $_POST['number_of_garments_sold'];
+    $total_sales_amount = (int)$_POST['total_sales_amount'];
+    // $date_add = $_POST['date_add'];
+    // $sold = $_POST['sold'];
 
     $sql = "UPDATE `info` set id='$id',
      name='$name',
@@ -29,8 +29,8 @@ if (isset($_POST['submit'])) {
      submitted_garments='$submitted_garments',
      number_of_garments_sold='$number_of_garments_sold',
      total_sales_amount='$total_sales_amount',
-     date_add='$date_add';
-     sold='$sold'
+    --  date_add='$date_add';
+    --  sold='$sold'
     WHERE id=$id";
 
 
@@ -71,17 +71,17 @@ if (isset($_POST['submit'])) {
 
             <div class="form-group">
                 <label>Inlämmnade plagg</label>
-                <input type="text" class="form-control" placeholder="Skriv alla Inlämmnade plagg" name="submitted_garments" autocapitalize="off" value=<?php echo $submitted_garments ?> />
+                <input type="number" class="form-control" placeholder="Skriv alla Inlämmnade plagg" name="submitted_garments" autocapitalize="off" value=<?php echo $submitted_garments ?> />
             </div>
 
             <div class=" form-group">
                 <label>Antal sålda plagg</label>
-                <input type="text" class="form-control" placeholder="Skriv antal sålda plagg" name="number_of_garments_sold" autocapitalize="off" value=<?php echo $number_of_garments_sold ?> />
+                <input type="number" class="form-control" placeholder="Skriv antal sålda plagg" name="number_of_garments_sold" autocapitalize="off" value=<?php echo $number_of_garments_sold ?> />
             </div>
 
             <div class="form-group">
                 <label>Totala försäljningssumman</label>
-                <input type="text" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" value=<?php echo $total_sales_amount ?> />
+                <input type="number" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" value=<?php echo $total_sales_amount ?> />
             </div>
 
             <div class="form-group">

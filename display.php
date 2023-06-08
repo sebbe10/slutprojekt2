@@ -49,8 +49,6 @@ include 'connect.php';
                         $submitted_garments = $row['submitted_garments'];
                         $number_of_garments_sold = $row['number_of_garments_sold'];
                         $total_sales_amount = $row['total_sales_amount'];
-                        $date_add = $row['date_add'];
-                        $sold = $row['sold'];
                         echo '
                         <tr>
                         <th scope="row">' . $id . '</th>
@@ -59,9 +57,6 @@ include 'connect.php';
                         <td>' . $submitted_garments . '</td>
                         <td>' . $number_of_garments_sold . '</td>
                         <td>' . $total_sales_amount . '</td>
-                        <td>' . $date_add . '</td>
-                        <td>' . $sold . '</td>
-                        <td>
                         <button class="btn btn-primary"><a href="update.php?updateid=' . $id . '" class="text-light" >Update</a></button>
                         <button class="btn btn-danger"><a href="delete.php?deleteid=' . $id . ' ">Delete</a></button>
                         </td>
