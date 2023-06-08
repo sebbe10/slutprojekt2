@@ -23,16 +23,10 @@ if (isset($_POST['submit'])) {
     $date_add = (int)$_POST['date_add'];
     $sold_available = (int)$_POST['sold_available'];
 
-    $sql = "UPDATE `info` set id='$id',
-     name='$name',
-     type='$type',
-     submitted_garments='$submitted_garments',
-     number_of_garments_sold='$number_of_garments_sold',
-     total_sales_amount='$total_sales_amount',
-     date_add='$date_add',
-     sold_available='$sold_available'
-    WHERE id=$id";
 
+    $sql = "UPDATE `info` set id='$id'(name, type, submitted_garments, number_of_garments_sold, total_sales_amount, date_add, sold_available)
+    values('$name', '$type', '$submitted_garments', '$number_of_garments_sold', '$total_sales_amount', NOW(), NOW())
+    WHERE id=$id";
 
     $result = mysqli_query($con, $sql);
 

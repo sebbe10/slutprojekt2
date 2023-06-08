@@ -29,7 +29,7 @@ include 'connect.php';
                     <th scope="col">Kläders plagg</th>
                     <th scope="col">Inlämmnade plagg</th>
                     <th scope="col">Antal sålda plagg</th>
-                    <th scope="col">Totala försäljningssumman</th>
+                    <th scope="col">Totalbelopp</th>
                     <th scope="col">Datum</th>
                     <th scope="col">Såld/tillgänlig</th>
                 </tr>
@@ -51,6 +51,7 @@ include 'connect.php';
                         $total_sales_amount = $row['total_sales_amount'];
                         $date_add = $row['date_add'];
                         $sold_available = $row['sold_available'];
+
                         echo '
                         <tr>                       
                         <th scope="row">' . $id . '</th>
@@ -62,8 +63,19 @@ include 'connect.php';
                         <td>' . $date_add . '</td>
                         <td>' . $sold_available . '</td>
                         <th>
+                        <div style="background: lightblue;
+                        margin: auto;
+                        display: flex;
+                        flex-direction: column;
+                        align-content: center;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100px;
+                        height: 100px;
+                        border: 2px solid;">
                         <button class="btn btn-primary"><a href="update.php?updateid=' . $id . '" class="text-light" >Update</a></button>
                         <button class="btn btn-danger"><a href="delete.php?deleteid=' . $id . ' ">Delete</a></button>
+                        </div>
                         </th>
                         </tr>';
                     }
