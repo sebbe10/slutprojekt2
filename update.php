@@ -10,8 +10,8 @@ $type = $row['type'];
 $submitted_garments = (int)$row['submitted_garments'];
 $number_of_garments_sold = (int)$row['number_of_garments_sold'];
 $total_sales_amount = (int)$row['total_sales_amount'];
-// $date_add = $row['date_add'];
-// $sold = $row['sold'];
+$date_add = (int)$row['date_add'];
+$sold_available = (int)$row['sold_available'];
 
 
 if (isset($_POST['submit'])) {
@@ -20,8 +20,8 @@ if (isset($_POST['submit'])) {
     $submitted_garments = (int)$_POST['submitted_garments'];
     $number_of_garments_sold = (int) $_POST['number_of_garments_sold'];
     $total_sales_amount = (int)$_POST['total_sales_amount'];
-    // $date_add = $_POST['date_add'];
-    // $sold = $_POST['sold'];
+    $date_add = (int)$_POST['date_add'];
+    $sold_available = (int)$_POST['sold_available'];
 
     $sql = "UPDATE `info` set id='$id',
      name='$name',
@@ -29,8 +29,8 @@ if (isset($_POST['submit'])) {
      submitted_garments='$submitted_garments',
      number_of_garments_sold='$number_of_garments_sold',
      total_sales_amount='$total_sales_amount',
-    --  date_add='$date_add';
-    --  sold='$sold'
+     date_add='$date_add',
+     sold_available='$sold_available'
     WHERE id=$id";
 
 
@@ -84,10 +84,6 @@ if (isset($_POST['submit'])) {
                 <input type="number" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" value=<?php echo $total_sales_amount ?> />
             </div>
 
-            <div class="form-group">
-                <label>Såld/tillgänglig</label>
-                <input type="text" class="form-control" placeholder="Skriv om den är såld/tillgänlig" name="sold" autocapitalize="off" value=<?php echo $sold ?> />
-            </div>
             <button type="submit" class="btn btn-primary" name="submit">Skicka</button>
         </form>
     </div>

@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $number_of_garments_sold = (int)$_POST['number_of_garments_sold'];
     $total_sales_amount = (int)$_POST['total_sales_amount'];
 
-    $sql = "INSERT INTO NOW info (name, type, submitted_garments, number_of_garments_sold, total_sales_amount, date_add, sold) values ('$name', '$type', '$submitted_garments', '$number_of_garments_sold', '$total_sales_amount', NOW(), NOW())";
+    $sql = "INSERT INTO info (name, type, submitted_garments, number_of_garments_sold, total_sales_amount, date_add, sold_available) values ('$name', '$type', '$submitted_garments', '$number_of_garments_sold', '$total_sales_amount', NOW(), NOW())";
 
 
     $result = mysqli_query($con, $sql);
