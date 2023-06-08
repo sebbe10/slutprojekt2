@@ -8,10 +8,9 @@ if (isset($_POST['submit'])) {
     $submitted_garments = $_POST['submitted_garments'];
     $number_of_garments_sold = $_POST['number_of_garments_sold'];
     $total_sales_amount = $_POST['total_sales_amount'];
-    $date_add = $_POST['date_add'];
     $sold = $_POST['sold'];
 
-    $sql = "INSERT INTO info (name, type, submitted_garments, number_of_garments_sold, total_sales_amount, date_add, sold) values ('$name', '$type', '$submitted_garments', '$number_of_garments_sold', '$total_sales_amount', '$date_add' ,'$sold')";
+    $sql = "INSERT INTO info (name, type, submitted_garments, number_of_garments_sold, total_sales_amount, sold) values ('$name', '$type', '$submitted_garments', '$number_of_garments_sold', '$total_sales_amount', '$sold')";
 
 
     $result = mysqli_query($con, $sql);
@@ -56,23 +55,24 @@ if (isset($_POST['submit'])) {
 
             <div class="form-group">
                 <label>Inlämmnade plagg</label>
-                <input type="text" class="form-control" placeholder="Skriv alla Inlämmnade plagg" name="submitted_garments" autocapitalize="off" />
+                <input type="number" class="form-control" placeholder="Skriv alla Inlämmnade plagg" name="submitted_garments" autocapitalize="off" />
             </div>
 
             <div class=" form-group">
                 <label>Antal sålda plagg</label>
-                <input type="text" class="form-control" placeholder="Skriv antal sålda plagg" name="number_of_garments_sold" autocapitalize="off" />
+                <input type="number" class="form-control" placeholder="Skriv antal sålda plagg" name="number_of_garments_sold" autocapitalize="off" />
             </div>
 
             <div class="form-group">
                 <label>Totala försäljningssumman</label>
-                <input type="text" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" />
+                <input type="number" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" />
             </div>
 
             <div class="form-group">
                 <label>Såld/tillgänglig</label>
                 <input type="text" class="form-control" placeholder="Skriv om den är såld/tillgänlig" name="sold" autocapitalize="off" />
             </div>
+
 
             <button type="submit" class="btn btn-primary" name="submit">Skicka</button>
         </form>
