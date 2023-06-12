@@ -24,9 +24,16 @@ if (isset($_POST['submit'])) {
     $sold_available = (int)$_POST['sold_available'];
 
 
-    $sql = "UPDATE `info` set id='$id'(name, type, submitted_garments, number_of_garments_sold, total_sales_amount, date_add, sold_available)
-    values('$name', '$type', '$submitted_garments', '$number_of_garments_sold', '$total_sales_amount', NOW(), NOW())
+    $sql = "UPDATE `info` set id='$id',
+     name='$name',
+     type='$type',
+     submitted_garments='$submitted_garments',
+     number_of_garments_sold='$number_of_garments_sold',
+     total_sales_amount='$total_sales_amount',
+     date_add=NOW(),
+     sold_available=NOW()
     WHERE id=$id";
+
 
     $result = mysqli_query($con, $sql);
 

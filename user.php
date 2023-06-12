@@ -42,6 +42,8 @@ if (isset($_POST['submit'])) {
         <h1 style="font-size: 50px; padding:10px 50px;">Secondhand</h1>
     </header>
     <div class="container my-5">
+
+
         <form method="post">
             <div class="form-group">
                 <label>Name</label>

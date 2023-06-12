@@ -15,13 +15,14 @@ include 'connect.php';
 
 <body style="background:lightblue;">
     <header style="background: white; border:10px solid lightblue; ">
-        <h1 style="font-size: 50px; padding:10px 50px;">Secondhand</h1>
+        <h1 style="font-size: 50px; padding:10px 50px; border-bottom:2px solid black; font-style:italic">Secondhand</h1>
     </header>
+
     <div class="container">
         <button class="btn btn-primary my-5"><a href="user.php" class="text-light"> Lägg till användare</a>
 
         </button>
-        <table style="background:white; width:auto; margin:auto;" class="table">
+        <table style="background:white; width:auto; margin:auto; box-shadow: 0 0.1rem 0.1rem black;" class="table">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -80,8 +81,9 @@ include 'connect.php';
                         </tr>';
                     }
                 }
-
                 ?>
+
+
             </tbody>
         </table>
     </div>
