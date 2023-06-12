@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 
 <body style="background:lightblue;">
     <header style="background: white; border:10px solid lightblue; ">
-        <h1 style="font-size: 50px; padding:10px 50px;">Secondhand</h1>
+        <h1 style="font-size: 50px; padding:10px 50px; border-bottom:2px solid black; font-style:italic">Secondhand</h1>
     </header>
     <div class="container my-5">
 
