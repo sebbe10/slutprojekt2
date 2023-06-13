@@ -86,6 +86,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <button type="submit" class="btn btn-primary" name="submit">Skicka</button>
+            <button class="btn btn-danger"><a href="display.php" class="text-light">Tillbaka</a></button>
         </form>
     </div>
 
