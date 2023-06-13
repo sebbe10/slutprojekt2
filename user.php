@@ -11,7 +11,6 @@ if (isset($_POST['submit'])) {
 
     $sql = "INSERT INTO info (name, type, submitted_garments, number_of_garments_sold, total_sales_amount, date_add, sold_available) values ('$name', '$type', '$submitted_garments', '$number_of_garments_sold', '$total_sales_amount', NOW(), NOW())";
 
-
     $result = mysqli_query($con, $sql);
 
     if ($result) {
