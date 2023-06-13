@@ -1,6 +1,6 @@
 <?php
-
 include 'connect.php';
+
 $id = $_GET['updateid'];
 $sql = "SELECT * FROM info WHERE id=$id";
 $result = mysqli_query($con, $sql);
