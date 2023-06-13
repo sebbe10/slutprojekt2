@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
      total_sales_amount='$total_sales_amount',
      date_add=NOW(),
      sold_available=NOW()
-    WHERE id=$id";
+     WHERE id=$id";
 
 
     $result = mysqli_query($con, $sql);

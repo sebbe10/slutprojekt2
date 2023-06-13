@@ -40,9 +40,8 @@ if (isset($_POST['submit'])) {
     <header style="background: white; border:10px solid lightblue; ">
         <h1 style="font-size: 50px; padding:10px 50px; border-bottom:2px solid black; font-style:italic">Secondhand</h1>
     </header>
+
     <div class="container my-5">
-
-
         <form method="post">
             <div class="form-group">
                 <label>Name</label>
@@ -69,6 +68,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <button type="submit" class="btn btn-primary" name="submit">Skicka</button>
+            <button class="btn btn-danger"><a href="display.php" class="text-light">Tillbaka</a></button>
         </form>
 </body>
 
