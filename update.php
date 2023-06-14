@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
     <div class="container my-5">
         <form method="post">
             <div class="form-group">
-                <label>Name</label>
+                <label>Förnamn</label>
                 <input type="text" class="form-control" placeholder="Skriv ditt namn" name="name" autocapitalize="off" value=<?php echo $name ?> />
             </div>
             <div class="form-group">
