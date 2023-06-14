@@ -26,7 +26,7 @@ include 'connect.php';
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Förnamn</th>
                     <th scope="col">Kläders plagg</th>
                     <th scope="col">Inlämmnade plagg</th>
                     <th scope="col">Antal sålda plagg</th>
