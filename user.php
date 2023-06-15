@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $sold_available = $_POST['sold_available'];
     $price = $_POST['price'];
 
-    $sql = "INSERT INTO info (type, date_add, sold_available, id_seller,,price) values ('$type', NOW(), '$sold_available', '$id_seller', '$price')";
+    $sql = "INSERT INTO info (type, date_add, id_seller, price) values ('$type', NOW(), '$id_seller', '$price')";
 
     $result = mysqli_query($con, $sql);
 
@@ -19,7 +19,6 @@ if (isset($_POST['submit'])) {
         die(mysqli_error($con));
     }
 }
-
 
 ?>
 
@@ -34,8 +33,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-
-
 <body style="background:lightblue;">
     <header style="background: white; border:10px solid lightblue; ">
         <h1 style="font-size: 50px; padding:10px 50px; border-bottom:2px solid black; font-style:italic">Secondhand</h1>
@@ -44,13 +41,11 @@ if (isset($_POST['submit'])) {
     <div class="container my-5">
         <form method="post">
 
-
-
             <div class="form-group">
-                <label for="id_seller">Seller id</label>
+                <label for="id_seller" style="font-size:30px; font-weight: bold;">Seller id</label>
 
-                <select name="id_seller" id="id_seller">
-                    <option value="">Please choose an option--</option>
+                <select name=" id_seller" id="id_seller">
+                    <option value="">Välj ett alternativ--</option>
                     <?php
 
                     $sql = "SELECT * FROM seller ORDER BY name";
@@ -70,13 +65,8 @@ if (isset($_POST['submit'])) {
                     }
                     ?>
                 </select>
-                <!-- <input type="text" class="form-control" placeholder="Skriv ditt Id seller" name="id_seller" autocapitalize="off" /> -->
             </div>
 
-            <!-- <div class="form-group">
-                <label>Förnamn</label>
-                <input type="text" class="form-control" placeholder="Skriv ditt namn" name="name" autocapitalize="off" />
-            </div> -->
             <div class="form-group">
                 <label>Type</label>
                 <input type="text" class="form-control" placeholder="Skriv din typ" name="type" autocapitalize="off" />

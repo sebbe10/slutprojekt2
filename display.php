@@ -2,7 +2,6 @@
 include 'connect.php';
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +23,6 @@ include 'connect.php';
             <button class="btn btn-primary my-5"><a href="user.php" class="text-light"> Lägg till vara</a>
                 <button class="btn btn-primary my-5"><a href="seller.php" class="text-light"> Lägg till säljare</a>
         </div>
-
 
         </button>
         <table style="background:white; width:auto; margin:auto; box-shadow: 0 0.1rem 0.1rem black;" class="table">
@@ -85,7 +83,6 @@ include 'connect.php';
                     }
                 }
                 ?>
-
 
             </tbody>
         </table>
