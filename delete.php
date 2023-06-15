@@ -9,6 +9,6 @@ if (isset($_GET['deleteid'])) {
         // echo "Deleted successfull";
         header('Location:display.php');
     } else {
-        die(mysqli_error($con));
+        die(mysqli_error($con))
     }
 }
