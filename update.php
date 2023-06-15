@@ -5,34 +5,48 @@ $id = $_GET['updateid'];
 $sql = "SELECT * FROM info WHERE id=$id";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
-$name = $row['name'];
+$id_seller = $row['id_seller'];
+// $name = $row['name'];
 $type = $row['type'];
-$submitted_garments = (int)$row['submitted_garments'];
-$number_of_garments_sold = (int)$row['number_of_garments_sold'];
-$total_sales_amount = (int)$row['total_sales_amount'];
 $date_add = (int)$row['date_add'];
 $sold_available = (int)$row['sold_available'];
-
+$price = (int)$row['price'];
 
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
+    $id_seller = $_POST['id_seller'];
+    // $name = $_POST['name'];
     $type = $_POST['type'];
-    $submitted_garments = (int)$_POST['submitted_garments'];
-    $number_of_garments_sold = (int) $_POST['number_of_garments_sold'];
-    $total_sales_amount = (int)$_POST['total_sales_amount'];
-    $date_add = (int)$_POST['date_add'];
-    $sold_available = (int)$_POST['sold_available'];
+    $sold_available = $_POST['sold_available'];
+    $price = $_POST['price'];
+
+
+    // if (isset($_POST['submit'])) {
+    //     $name = $_POST['name'];
+    //     $type = $_POST['type'];
+    //     $submitted_garments = (int)$_POST['submitted_garments'];
+    //     $number_of_garments_sold = (int) $_POST['number_of_garments_sold'];
+    //     $total_sales_amount = (int)$_POST['total_sales_amount'];
+    //     $date_add = (int)$_POST['date_add'];
+    //     $sold_available = (int)$_POST['sold_available'];
 
 
     $sql = "UPDATE `info` set id='$id',
-     name='$name',
-     type='$type',
-     submitted_garments='$submitted_garments',
-     number_of_garments_sold='$number_of_garments_sold',
-     total_sales_amount='$total_sales_amount',
-     date_add=NOW(),
-     sold_available=NOW()
-     WHERE id=$id";
+    id_seller = '$id_seller';
+    name = '$name';
+    type='$type',
+    date_add=NOW(),
+    sold_available=NOW()
+    $price = '$price';
+    WHERE id=$id";
+
+    //  name='$name',
+    //  type='$type',
+    //  submitted_garments='$submitted_garments',
+    //  number_of_garments_sold='$number_of_garments_sold',
+    //  total_sales_amount='$total_sales_amount',
+    //  date_add=NOW(),
+    //  sold_available=NOW()
+    //  WHERE id=$id";
 
 
     $result = mysqli_query($con, $sql);
@@ -61,16 +75,27 @@ if (isset($_POST['submit'])) {
     <div class="container my-5">
         <form method="post">
             <div class="form-group">
-                <label>Förnamn</label>
-                <input type="text" class="form-control" placeholder="Skriv ditt namn" name="name" autocapitalize="off" value=<?php echo $name ?> />
+                <label>Id seller</label>
+                <input type="text" class="form-control" placeholder="Skriv ditt Id seller" name="id_seller" autocapitalize="off" />
             </div>
+
+            <!-- <div class="form-group">
+                <label>Förnamn</label>
+                <input type="text" class="form-control" placeholder="Skriv ditt namn" name="name" autocapitalize="off" />
+            </div> -->
             <div class="form-group">
                 <label>Type</label>
-                <input type="text" class="form-control" placeholder="Skriv din typ" name="type" autocapitalize="off" value=<?php echo $type ?> />
+                <input type="text" class="form-control" placeholder="Skriv din typ" name="type" autocapitalize="off" />
+            </div>
+
+            <div class="form-group">
+                <label>Pris</label>
+                <input type="text" class="form-control" placeholder="Skriv priset" name="price" autocapitalize="off" />
             </div>
 
 
-            <div class="form-group">
+
+            <!-- <div class="form-group">
                 <label>Inlämmnade plagg</label>
                 <input type="number" class="form-control" placeholder="Skriv alla Inlämmnade plagg" name="submitted_garments" autocapitalize="off" value=<?php echo $submitted_garments ?> />
             </div>
@@ -83,7 +108,7 @@ if (isset($_POST['submit'])) {
             <div class="form-group">
                 <label>Totala försäljningssumman</label>
                 <input type="number" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" value=<?php echo $total_sales_amount ?> />
-            </div>
+            </div> -->
 
             <button type="submit" class="btn btn-primary" name="submit">Skicka</button>
             <button class="btn btn-danger"><a href="display.php" class="text-light">Tillbaka</a></button>

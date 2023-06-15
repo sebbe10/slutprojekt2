@@ -3,13 +3,12 @@
 include 'connect.php';
 
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
+    $id_seller = $_POST['id_seller'];
     $type = $_POST['type'];
-    $submitted_garments = (int)$_POST['submitted_garments'];
-    $number_of_garments_sold = (int)$_POST['number_of_garments_sold'];
-    $total_sales_amount = (int)$_POST['total_sales_amount'];
+    $sold_available = $_POST['sold_available'];
+    $price = $_POST['price'];
 
-    $sql = "INSERT INTO info (name, type, submitted_garments, number_of_garments_sold, total_sales_amount, date_add, sold_available) values ('$name', '$type', '$submitted_garments', '$number_of_garments_sold', '$total_sales_amount', NOW(), NOW())";
+    $sql = "INSERT INTO info (type, date_add, id_seller, price) values ('$type', NOW(), '$id_seller', '$price')";
 
     $result = mysqli_query($con, $sql);
 
@@ -43,16 +42,27 @@ if (isset($_POST['submit'])) {
 
     <div class="container my-5">
         <form method="post">
+
             <div class="form-group">
+                <label>Id seller</label>
+                <input type="text" class="form-control" placeholder="Skriv ditt Id seller" name="id_seller" autocapitalize="off" />
+            </div>
+
+            <!-- <div class="form-group">
                 <label>Förnamn</label>
                 <input type="text" class="form-control" placeholder="Skriv ditt namn" name="name" autocapitalize="off" />
-            </div>
+            </div> -->
             <div class="form-group">
                 <label>Type</label>
                 <input type="text" class="form-control" placeholder="Skriv din typ" name="type" autocapitalize="off" />
             </div>
 
             <div class="form-group">
+                <label>Pris</label>
+                <input type="text" class="form-control" placeholder="Skriv priset" name="price" autocapitalize="off" />
+            </div>
+
+            <!-- <div class="form-group">
                 <label>Inlämmnade plagg</label>
                 <input type="number" class="form-control" placeholder="Skriv alla Inlämmnade plagg" name="submitted_garments" autocapitalize="off" />
             </div>
@@ -65,7 +75,7 @@ if (isset($_POST['submit'])) {
             <div class="form-group">
                 <label>Totala försäljningssumman</label>
                 <input type="number" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" />
-            </div>
+            </div> -->
 
             <button type="submit" class="btn btn-primary" name="submit">Skicka</button>
             <button class="btn btn-danger"><a href="display.php" class="text-light">Tillbaka</a></button>

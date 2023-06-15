@@ -19,50 +19,50 @@ include 'connect.php';
     </header>
 
     <div class="container">
-        <button class="btn btn-primary my-5"><a href="user.php" class="text-light"> Lägg till användare</a>
+        <button class="btn btn-primary my-5"><a href="user.php" class="text-light"> Lägg till vara</a>
+            <button class="btn btn-primary my-5"><a href="seller.php" class="text-light"> Lägg till säljare</a>
 
-        </button>
-        <table style="background:white; width:auto; margin:auto; box-shadow: 0 0.1rem 0.1rem black;" class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Förnamn</th>
-                    <th scope="col">Kläders plagg</th>
-                    <th scope="col">Inlämmnade plagg</th>
-                    <th scope="col">Antal sålda plagg</th>
-                    <th scope="col">Totalbelopp</th>
-                    <th scope="col">Datum</th>
-                    <th scope="col">Såld/tillgänlig</th>
-                </tr>
-            </thead>
-            <tbody>
 
-                <?php
-                $sql = "SELECT * FROM info ORDER BY name";
+            </button>
+            <table style="background:white; width:auto; margin:auto; box-shadow: 0 0.1rem 0.1rem black;" class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Seller id</th>
+                        <th scope="col">Förnamn</th>
+                        <th scope="col">Kläders plagg</th>
+                        <th scope="col">Datum</th>
+                        <th scope="col">Såld/tillgänlig</th>
+                        <th scope="col">Pris</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                $result = mysqli_query($con, $sql);
-                if ($result) {
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    <?php
 
-                        $id = $row['id'];
-                        $name = $row['name'];
-                        $type = $row['type'];
-                        $submitted_garments = $row['submitted_garments'];
-                        $number_of_garments_sold = $row['number_of_garments_sold'];
-                        $total_sales_amount = $row['total_sales_amount'];
-                        $date_add = $row['date_add'];
-                        $sold_available = $row['sold_available'];
+                    $sql = "select info.*, seller.name from info join seller ON seller.id= info.id_seller ORDER BY seller.name";
 
-                        echo '
+                    $result = mysqli_query($con, $sql);
+                    if ($result) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+
+                            $id = $row['id'];
+                            $id_seller = $row['id_seller'];
+                            $name = $row['name'];
+                            $type = $row['type'];
+                            $date_add = $row['date_add'];
+                            $sold_available = $row['sold_available'];
+                            $price = $row['price'];
+
+                            echo '
                         <tr>                       
                         <th scope="row">' . $id . '</th>
+                        <th scope="row">' . $id_seller . '</th>
                         <td>' . $name . '</td>
                         <td>' . $type . '</td>
-                        <td>' . $submitted_garments . '</td>
-                        <td>' . $number_of_garments_sold . '</td>
-                        <td>' . $total_sales_amount . '</td>
                         <td>' . $date_add . '</td>
                         <td>' . $sold_available . '</td>
+                        <td>' . $price . '</td>
                         <th>
                         <div style="background: lightblue;
                         margin: auto;
@@ -79,13 +79,13 @@ include 'connect.php';
                         </div>
                         </th>
                         </tr>';
+                        }
                     }
-                }
-                ?>
+                    ?>
 
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
     </div>
 </body>
 
