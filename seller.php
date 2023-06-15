@@ -3,8 +3,8 @@
 include 'connect.php';
 
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
 
+    $name = $_POST['name'];
 
     $sql = "INSERT INTO seller (name) values ('$name')";
 
@@ -17,6 +17,7 @@ if (isset($_POST['submit'])) {
         die(mysqli_error($con));
     }
 }
+
 ?>
 
 <!DOCTYPE html>

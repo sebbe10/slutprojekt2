@@ -2,6 +2,7 @@
 include 'connect.php';
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,42 +20,44 @@ include 'connect.php';
     </header>
 
     <div class="container">
-        <button class="btn btn-primary my-5"><a href="user.php" class="text-light"> Lägg till vara</a>
-            <button class="btn btn-primary my-5"><a href="seller.php" class="text-light"> Lägg till säljare</a>
+        <div style="display:flex; gap: 10px;">
+            <button class="btn btn-primary my-5"><a href="user.php" class="text-light"> Lägg till vara</a>
+                <button class="btn btn-primary my-5"><a href="seller.php" class="text-light"> Lägg till säljare</a>
+        </div>
 
 
-            </button>
-            <table style="background:white; width:auto; margin:auto; box-shadow: 0 0.1rem 0.1rem black;" class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Seller id</th>
-                        <th scope="col">Förnamn</th>
-                        <th scope="col">Kläders plagg</th>
-                        <th scope="col">Datum</th>
-                        <th scope="col">Såld/tillgänlig</th>
-                        <th scope="col">Pris</th>
-                    </tr>
-                </thead>
-                <tbody>
+        </button>
+        <table style="background:white; width:auto; margin:auto; box-shadow: 0 0.1rem 0.1rem black;" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Seller id</th>
+                    <th scope="col">Förnamn</th>
+                    <th scope="col">Kläders plagg</th>
+                    <th scope="col">Datum</th>
+                    <th scope="col">Såld</th>
+                    <th scope="col">Pris</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                    <?php
+                <?php
 
-                    $sql = "select info.*, seller.name from info join seller ON seller.id= info.id_seller ORDER BY seller.name";
+                $sql = "select info.*, seller.name from info join seller ON seller.id= info.id_seller ORDER BY seller.name";
 
-                    $result = mysqli_query($con, $sql);
-                    if ($result) {
-                        while ($row = mysqli_fetch_assoc($result)) {
+                $result = mysqli_query($con, $sql);
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
 
-                            $id = $row['id'];
-                            $id_seller = $row['id_seller'];
-                            $name = $row['name'];
-                            $type = $row['type'];
-                            $date_add = $row['date_add'];
-                            $sold_available = $row['sold_available'];
-                            $price = $row['price'];
+                        $id = $row['id'];
+                        $id_seller = $row['id_seller'];
+                        $name = $row['name'];
+                        $type = $row['type'];
+                        $date_add = $row['date_add'];
+                        $sold_available = $row['sold_available'];
+                        $price = $row['price'];
 
-                            echo '
+                        echo '
                         <tr>                       
                         <th scope="row">' . $id . '</th>
                         <th scope="row">' . $id_seller . '</th>
@@ -74,18 +77,18 @@ include 'connect.php';
                         width: 100px;
                         height: 100px;
                         border: 2px solid;">
-                        <button class="btn btn-primary"><a href="update.php?updateid=' . $id . '" class="text-light" >Update</a></button>
+                        <button class="btn btn-primary"><a href="sold.php?updateid=' . $id . '" class="text-light" >Sold</a></button>
                         <button class="btn btn-danger"><a href="delete.php?deleteid=' . $id . ' ">Delete</a></button>
                         </div>
                         </th>
                         </tr>';
-                        }
                     }
-                    ?>
+                }
+                ?>
 
 
-                </tbody>
-            </table>
+            </tbody>
+        </table>
     </div>
 </body>
 

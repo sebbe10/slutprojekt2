@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $sold_available = $_POST['sold_available'];
     $price = $_POST['price'];
 
-    $sql = "INSERT INTO info (type, date_add, id_seller, price) values ('$type', NOW(), '$id_seller', '$price')";
+    $sql = "INSERT INTO info (type, date_add, sold_available, id_seller,,price) values ('$type', NOW(), '$sold_available', '$id_seller', '$price')";
 
     $result = mysqli_query($con, $sql);
 
@@ -35,6 +35,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 
+
 <body style="background:lightblue;">
     <header style="background: white; border:10px solid lightblue; ">
         <h1 style="font-size: 50px; padding:10px 50px; border-bottom:2px solid black; font-style:italic">Secondhand</h1>
@@ -43,9 +44,33 @@ if (isset($_POST['submit'])) {
     <div class="container my-5">
         <form method="post">
 
+
+
             <div class="form-group">
-                <label>Id seller</label>
-                <input type="text" class="form-control" placeholder="Skriv ditt Id seller" name="id_seller" autocapitalize="off" />
+                <label for="id_seller">Seller id</label>
+
+                <select name="id_seller" id="id_seller">
+                    <option value="">Please choose an option--</option>
+                    <?php
+
+                    $sql = "SELECT * FROM seller ORDER BY name";
+
+                    $result = mysqli_query($con, $sql);
+                    if ($result) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+
+                            $id = $row['id'];
+                            $name = $row['name'];
+
+                            echo '
+                                <option value=' . $id . '>'
+                                . $name .
+                                '</option>';
+                        }
+                    }
+                    ?>
+                </select>
+                <!-- <input type="text" class="form-control" placeholder="Skriv ditt Id seller" name="id_seller" autocapitalize="off" /> -->
             </div>
 
             <!-- <div class="form-group">
@@ -61,21 +86,6 @@ if (isset($_POST['submit'])) {
                 <label>Pris</label>
                 <input type="text" class="form-control" placeholder="Skriv priset" name="price" autocapitalize="off" />
             </div>
-
-            <!-- <div class="form-group">
-                <label>Inlämmnade plagg</label>
-                <input type="number" class="form-control" placeholder="Skriv alla Inlämmnade plagg" name="submitted_garments" autocapitalize="off" />
-            </div>
-
-            <div class=" form-group">
-                <label>Antal sålda plagg</label>
-                <input type="number" class="form-control" placeholder="Skriv antal sålda plagg" name="number_of_garments_sold" autocapitalize="off" />
-            </div>
-
-            <div class="form-group">
-                <label>Totala försäljningssumman</label>
-                <input type="number" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" />
-            </div> -->
 
             <button type="submit" class="btn btn-primary" name="submit">Skicka</button>
             <button class="btn btn-danger"><a href="display.php" class="text-light">Tillbaka</a></button>

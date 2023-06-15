@@ -32,10 +32,9 @@ if (isset($_POST['submit'])) {
 
     $sql = "UPDATE `info` set id='$id',
     id_seller = '$id_seller';
-    name = '$name';
     type='$type',
     date_add=NOW(),
-    sold_available=NOW()
+    sold_available=NOW(),
     $price = '$price';
     WHERE id=$id";
 
@@ -79,10 +78,6 @@ if (isset($_POST['submit'])) {
                 <input type="text" class="form-control" placeholder="Skriv ditt Id seller" name="id_seller" autocapitalize="off" />
             </div>
 
-            <!-- <div class="form-group">
-                <label>Förnamn</label>
-                <input type="text" class="form-control" placeholder="Skriv ditt namn" name="name" autocapitalize="off" />
-            </div> -->
             <div class="form-group">
                 <label>Type</label>
                 <input type="text" class="form-control" placeholder="Skriv din typ" name="type" autocapitalize="off" />
@@ -92,23 +87,6 @@ if (isset($_POST['submit'])) {
                 <label>Pris</label>
                 <input type="text" class="form-control" placeholder="Skriv priset" name="price" autocapitalize="off" />
             </div>
-
-
-
-            <!-- <div class="form-group">
-                <label>Inlämmnade plagg</label>
-                <input type="number" class="form-control" placeholder="Skriv alla Inlämmnade plagg" name="submitted_garments" autocapitalize="off" value=<?php echo $submitted_garments ?> />
-            </div>
-
-            <div class=" form-group">
-                <label>Antal sålda plagg</label>
-                <input type="number" class="form-control" placeholder="Skriv antal sålda plagg" name="number_of_garments_sold" autocapitalize="off" value=<?php echo $number_of_garments_sold ?> />
-            </div>
-
-            <div class="form-group">
-                <label>Totala försäljningssumman</label>
-                <input type="number" class="form-control" placeholder="Skriv totala försäljningssumman" name="total_sales_amount" autocapitalize="off" value=<?php echo $total_sales_amount ?> />
-            </div> -->
 
             <button type="submit" class="btn btn-primary" name="submit">Skicka</button>
             <button class="btn btn-danger"><a href="display.php" class="text-light">Tillbaka</a></button>
